@@ -41,6 +41,10 @@ document.onkeyup = function (event) {
 
   guessesSoFarHTML.textContent = guessArray.join(", ");
 
+  if (userGuess !== computerLetter) {
+    var guessesLeft = parseInt(guessesLeftHTML.textContent) - 1;
+    guessesLeftHTML.textContent = guessesLeft;
+  }
 
   if (userGuess === computerLetter) {
     var wins = parseInt(winsHTML.textContent) + 1;
@@ -48,10 +52,7 @@ document.onkeyup = function (event) {
     alert("You won!");
     newGame();
   };
-  if (userGuess !== computerLetter) {
-    var guessesLeft = parseInt(guessesLeftHTML.textContent) - 1;
-    guessesLeftHTML.textContent = guessesLeft;
-  }
+
 
   if (guessesLeft === 0) {
     alert("You lose! Try again.");
